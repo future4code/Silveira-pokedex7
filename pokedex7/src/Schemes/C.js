@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { goToPokedex } from "../../routes/coordinator";
+import { goToPokedex } from "../PipeLine/Line";
 
 const C = ({ RollBack, Name, NextButton }) => {
   const Navigate = useNavigate();

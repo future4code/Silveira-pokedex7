@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios"
-import { URL } from '../../constants/urls';
+import { URL } from '../Url/Url';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import GlobalContext from "../Components/GCont";

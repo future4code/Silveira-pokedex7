@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import GlobalContext from "./GlobalContext";
+import GlobalContext from "./GCont";
 import axios from "axios";
 import { URL } from "../Url/Url";
 

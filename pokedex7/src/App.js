@@ -1,6 +1,7 @@
 import React from "react";
+import Router from "./PipeLine/Pipe"
+import GlobalState from "./Components/GState";
 
-i
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import GlobalContext from "../Components/GCont";
-import { goToPokeDetalhes} from "../pages/PokeDetalhes"
+import { goToPokeDetalhes} from "../PipeLine/Line"
 
 
 const CPoke= (props) => {
@@ -50,14 +50,14 @@ const CPoke= (props) => {
   };
 
   return (
-    <PokeC>
-      <Img>
-        <Sprit
+    <div>
+      <div>
+        <img
           src={props.poke && props.poke.sprites.front_default}
           alt={props.poke.name}
         />
-      </Img>
-      <Buttons>
+      </div>
+      <div>
         <button onClick={props.isPokedex ? removePokedex : addPokedex}>
           {props.isPokedex ? "Remover da Pokédex" : "Adicionar a Pokédex"}
         </button>
@@ -68,8 +68,8 @@ const CPoke= (props) => {
         >
           Ver detalhes
         </button>
-      </Buttons>
-    </PokeC>
+      </div>
+    </div>
   );
 };
 
