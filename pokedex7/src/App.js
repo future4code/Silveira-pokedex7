@@ -1,13 +1,16 @@
 import React from "react";
-import Router from "./PipeLine/Pipe"
+import Router from "./PipeLine/Pipe";
 import GlobalState from "./Components/GState";
 
 
 function App() {
   return (
-    <GlobalState>
-      <Router/>
-    </GlobalState>
+    <div>
+      
+      <GlobalState>
+        <Router/>
+      </GlobalState>
+    </div>
   );
 }
 

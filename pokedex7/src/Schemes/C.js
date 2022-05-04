@@ -9,7 +9,7 @@ const C = ({ RollBack, Name, NextButton }) => {
     switch (Name) {
       case "Lista de Pokémons":
         return "Ir para Pokedex";
-      case "Pokédex":
+      case "Pokedex":
         return "Voltar para lista de pokemons";
       default:
         return "Voltar";
@@ -17,7 +17,7 @@ const C = ({ RollBack, Name, NextButton }) => {
   };
 
   return (
-    <C>
+    <div>
       <button onClick={RollBack}>
         {Presentation()}
       </button>
@@ -27,7 +27,7 @@ const C = ({ RollBack, Name, NextButton }) => {
           Ir para pokedex
         </button>
       )}
-    </C>
+    </div>
   );
 };
 
