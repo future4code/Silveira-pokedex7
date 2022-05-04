@@ -9,7 +9,7 @@ const Pipe = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<PokeHome/>} />
-        <Route path="/pokemon/:name/:telaPokedex?" element={<PokeDetalhes/>}/>
+        <Route path="/pokemon/:name/:BackPokedex" element={<PokeDetalhes/>}/>
         <Route path="/pokedex" element={<Pokedex/>} />
         <Route path="*" element={<p>Bem Vindo a Narnia!</p>}/>
       </Routes>

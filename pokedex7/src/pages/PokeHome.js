@@ -3,17 +3,17 @@ import { useNavigate } from "react-router-dom";
 import CPoke from "../Schemes/CPoke";
 import C from "../Schemes/C";
 import { goToPokedex } from "../PipeLine/Line";
-import GlobalContext from "../Components/GCont";
+import GlobalStateContext from "../Components/GCont";
 
 
 const PokeHome = () => {
-  const { pokemons } = useContext(GlobalContext);
+  const { pokemons } = useContext(GlobalStateContext);
   const Navigate = useNavigate();
 
   return (
     <>
       <C
-        title={"Lista dos Pokémons"}
+        Name={"Lista dos Pokémons"}
         RollBack={() => goToPokedex(Navigate)}
       />
       <div>
