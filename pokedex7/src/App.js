@@ -1,16 +1,17 @@
 import React from "react";
 import Router from "./PipeLine/Pipe";
 import GlobalState from "./Components/GState";
+import { GlobalStyle, MainDiv } from "./Styled";
 
 
 function App() {
   return (
-    <div>
-      
+    <MainDiv>
+      <GlobalStyle/>
       <GlobalState>
         <Router/>
       </GlobalState>
-    </div>
+    </MainDiv>
   );
 }
 
