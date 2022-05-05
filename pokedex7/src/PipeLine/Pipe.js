@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PokeHome from "../pages/PokeHome";
-import PokeDetalhes from "../pages/PokeDetalhes";
+import PokeDetalhes from "../pages/PokeDetalhes/PokeDetalhes";
 import Pokedex from "../pages/Pokedex";
 
 const Pipe = () => {

@@ -18,7 +18,7 @@ const GlobalState = (props) => {
       axios.get(`${URL}/pokemon/${item.name}`)
       .then((response) => {
         NovaList.push(response.data);
-        if (NovaList.length === 50) {
+        if (NovaList.length === 10) {
           const ListOrdern = NovaList.sort((a, b) => {
             return a.id - b.id;
           });
@@ -30,7 +30,7 @@ const GlobalState = (props) => {
   }, [pokemonNames]);
 
   const getPokemonName = () => {
-    axios.get(`${URL}/pokemon?limit=50`)
+    axios.get(`${URL}/pokemon?limit=10`)
     .then((response) => {
       setPokemonNames(response.data.results);
     })

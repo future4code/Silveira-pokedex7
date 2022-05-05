@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios"
-import { URL } from '../Url/Url';
+import { URL } from '../../Url/Url';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import GlobalStateContext from "../Components/GCont";
-import C from "../Schemes/C";
-import { goToPokeHome, goToPokedex } from "../PipeLine/Line";
+import GlobalStateContext from "../../Components/GCont";
+import C from "../../Schemes/C";
+import { goToPokeHome, goToPokedex } from "../../PipeLine/Line";
+import { StyledDivHome } from "../../Styled";
 
 const PokeDetalhes = () => {
   const { name, BackPokedex } = useParams();
@@ -38,7 +39,7 @@ const PokeDetalhes = () => {
   }, []);
 
   return (
-    <div>
+    <StyledDivHome>
       <C
         Name={"Detalhes"}
         RollBack={() => goToPokeHome(Navigate)}
@@ -47,8 +48,8 @@ const PokeDetalhes = () => {
       {pokemonSelecionar && pokemonSelecionar.sprites && (
         <div>
           <div>
-            <div src={pokemonSelecionar.sprites.front_default} />
-            <div src={pokemonSelecionar.sprites.back_default} />
+            <img src={pokemonSelecionar.sprites.front_default} />
+            <img src={pokemonSelecionar.sprites.back_default} />
           </div>
           <div>
             <h2>Poderes</h2>
@@ -81,7 +82,7 @@ const PokeDetalhes = () => {
           </div>
         </div>
       )}
-    </div>
+    </StyledDivHome>
   );
 };
 
