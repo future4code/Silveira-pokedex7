@@ -72,7 +72,6 @@ const CPoke= (props) => {
             <StyledTypes>
               {props.poke && props.poke.types.map( type => {
                 return <StyledTypeCard key={props.poke.name} className="div-type" divColor={type.type.name}>
-                  {console.log("Nome do tipo:",type.type.name)}
                   <p>{type.type.name}</p>
                 </StyledTypeCard>
               })}

@@ -7,12 +7,14 @@ import GlobalStateContext from "../../Components/GCont";
 import C from "../../Schemes/C";
 import { goToPokeHome, goToPokedex } from "../../PipeLine/Line";
 import { StyledDivHome } from "../../Styled";
+import { StyledDivGrid, StyledTypeCard, StyledType, StyledCharacteristic, StyledImg, StyledStats } from "./Styled";
 
 const PokeDetalhes = () => {
   const { name, BackPokedex } = useParams();
   const Navigate = useNavigate();
   const { pokemons, pokedex } = useContext(GlobalStateContext);
-  const [pokemonSelecionar, setpokemonSelecionar] = useState({});
+  const [ pokemonSelecionar, setpokemonSelecionar ] = useState({});
+  const [ characteristic, setCharacteristic ] = useState([]);
 
   useEffect(() => {
     let current = [];
@@ -21,7 +23,7 @@ const PokeDetalhes = () => {
       current = pokedex.find((item) => {
         return item.name === name;
       });
-    } 
+    }
     else {
       current = pokemons.find((item) => {
         return item.name === name;
@@ -32,11 +34,26 @@ const PokeDetalhes = () => {
       axios.get(`${URL}/pokemon/${name}`)
       .then((response) => setpokemonSelecionar(response.data))
       .catch((error)=> console.log(error.response.message))
+      renderCharacteristic()
     } 
     else {
       setpokemonSelecionar(current)
+      renderCharacteristic()
     }
+    console.log(pokemonSelecionar)
+    console.log(current)
   }, []);
+
+  const renderCharacteristic = () => {
+    axios.get(`https://pokeapi.co/api/v2/characteristic/${pokemonSelecionar.id}/`)
+    .then( response => {
+      console.log("dentro da funcao", response)
+      setCharacteristic(response.data);
+    })
+    .catch( error => {
+      console.log(error.response)
+    })
+  }
 
   return (
     <StyledDivHome>
@@ -46,31 +63,66 @@ const PokeDetalhes = () => {
         NextButton={() => goToPokedex(Navigate)}
       />
       {pokemonSelecionar && pokemonSelecionar.sprites && (
-        <div>
-          <div>
-            <img src={pokemonSelecionar.sprites.front_default} />
-            <img src={pokemonSelecionar.sprites.back_default} />
+        <StyledDivGrid>
+          <div className="div-main">
+            <div className="div-name">
+              <h1>{pokemonSelecionar.name}</h1>
+            </div>
           </div>
-          <div>
-            <h2>Poderes</h2>
-            {pokemonSelecionar &&
-              pokemonSelecionar.stats.map((stat) => {
-                return (
-                  <p key={stat.stat.name}>
-                    <div>{stat.stat.name}: </div>
-                    {stat.base_stat}
-                  </p>
-                );
-              })}
+          <div className="div-main">
+            <StyledImg>
+              <img src={pokemonSelecionar.sprites.other.dream_world.front_default} />
+            </StyledImg>
+            <StyledCharacteristic>
+                <div>
+                  <h4>Height</h4>
+                  <p>{pokemonSelecionar.height}</p>
+                </div>
+                <div>
+                  <h4>Category</h4>
+                  <p>{pokemonSelecionar.height}</p>
+                </div>
+                <div>
+                  <h4>height</h4>
+                  <p>{pokemonSelecionar.height}</p>
+                </div>
+                <div>
+                  <h4>height</h4>
+                  <p>{pokemonSelecionar.height}</p>
+                </div>
+                <div>
+                  <h4>height</h4>
+                  <p>{pokemonSelecionar.height}</p>
+                </div>
+            </StyledCharacteristic>
           </div>
-          <div>
-            <h2>
-              {pokemonSelecionar &&
-                pokemonSelecionar.types.map((type) => {
-                  return <p key={type.type.name}>{type.type.name}</p>;
-                })}
-            </h2>
-            <div>
+            <div className="div-main">
+              <StyledStats>
+                <h3>Stats</h3>
+                <div className="div-grid">
+                  {pokemonSelecionar &&
+                    pokemonSelecionar.stats.map((stat) => {
+                      return (
+                      <div key={stat.stat.name}>
+                      <p><span>{stat.stat.name}:</span> {stat.base_stat}</p>
+                      </div>
+                      );
+                  })} 
+                </div>  
+              </StyledStats>
+              <StyledType>
+                  <p>Type</p>
+                  <div className="div-card">
+                    {pokemonSelecionar &&
+                    pokemonSelecionar.types.map((type) => {
+                      return <StyledTypeCard key={type.type.name} className="div-type" divColor={type.type.name}>
+                          <p>{type.type.name}</p>
+                        </StyledTypeCard>;
+                    })} 
+                  </div>
+              </StyledType> 
+            </div> 
+          {/* <div>
               <h2>Principais ataques</h2>
               {pokemonSelecionar &&
                 pokemonSelecionar.moves.map((move, index) => {
@@ -78,9 +130,8 @@ const PokeDetalhes = () => {
                     index < 5 && <p key={move.move.name}>{move.move.name}</p>
                   );
                 })}
-            </div>
-          </div>
-        </div>
+          </div> */}
+        </StyledDivGrid>
       )}
     </StyledDivHome>
   );
