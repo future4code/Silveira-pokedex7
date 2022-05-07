@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import CPoke from "../Schemes/CPoke/CPoke";
-import C from "../Schemes/C";
+import C from "../Schemes/C/C";
 import { goToPokedex } from "../PipeLine/Line";
 import GlobalStateContext from "../Components/GCont";
 import { StyledDivHome, StyledDivCard } from "../Styled";
@@ -14,7 +14,7 @@ const PokeHome = () => {
   return (
     <StyledDivHome>
       <C
-        Name={"Lista dos Pokémons"}
+        Name={"Pokémons"}
         RollBack={() => goToPokedex(Navigate)}
       />
       <StyledDivCard>
