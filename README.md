@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Italo Souza
 - Jerusa Silva
 
-Link do Surge: www.link.com.br
+Link do Surge: https://relieved-way.surge.sh/
 
 O que funciona:
 - As implementações com a API estão funcionando corretamente.
