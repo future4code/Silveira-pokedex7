@@ -59,15 +59,17 @@ export const StyledButton = styled.div `
     justify-content: center;
     text-align: center;
     border: none;
-    background-color: red;
+    background-color: #E3350D;
     border-radius: 8px;
     width: 100%;
     height: 30px;
-    outline: 3px solid black;
-    outline-offset: -3px;
     cursor: pointer;
     user-select: none;
     margin-top: 5px;
+
+    &:hover {
+        background-color: #E3350D;
+    }
 
     span {
         display: flex;
@@ -76,7 +78,7 @@ export const StyledButton = styled.div `
         text-align: center;
         font-size: 1.2rem;
         font-weight: bold;
-        background-color: white;
+        color: white;
         height: 27px;
     }
 `

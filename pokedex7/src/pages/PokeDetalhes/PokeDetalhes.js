@@ -4,7 +4,7 @@ import { URL } from '../../Url/Url';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import GlobalStateContext from "../../Components/GCont";
-import C from "../../Schemes/C";
+import C from "../../Schemes/C/C";
 import { goToPokeHome, goToPokedex } from "../../PipeLine/Line";
 import { StyledDivHome } from "../../Styled";
 import { StyledDivGrid, StyledTypeCard, StyledType, StyledCharacteristic, StyledImg, StyledStats } from "./Styled";
@@ -45,9 +45,8 @@ const PokeDetalhes = () => {
   }, []);
 
   const renderCharacteristic = () => {
-    axios.get(`https://pokeapi.co/api/v2/characteristic/${pokemonSelecionar.id}/`)
+    axios.get(`https://pokeapi.co/api/v2/gender/${pokemonSelecionar.id}/`)
     .then( response => {
-      console.log("dentro da funcao", response)
       setCharacteristic(response.data);
     })
     .catch( error => {
@@ -59,15 +58,12 @@ const PokeDetalhes = () => {
     <StyledDivHome>
       <C
         Name={"Detalhes"}
-        RollBack={() => goToPokeHome(Navigate)}
-        NextButton={() => goToPokedex(Navigate)}
+        RollBack={() => goToPokedex(Navigate)}
       />
       {pokemonSelecionar && pokemonSelecionar.sprites && (
         <StyledDivGrid>
-          <div className="div-main">
-            <div className="div-name">
-              <h1>{pokemonSelecionar.name}</h1>
-            </div>
+          <div className="div-name">
+            <h1>{pokemonSelecionar.name}</h1>
           </div>
           <div className="div-main">
             <StyledImg>
@@ -79,20 +75,16 @@ const PokeDetalhes = () => {
                   <p>{pokemonSelecionar.height}</p>
                 </div>
                 <div>
-                  <h4>Category</h4>
-                  <p>{pokemonSelecionar.height}</p>
+                  <h4>Weight</h4>
+                  <p>{pokemonSelecionar.weight}</p>
                 </div>
                 <div>
-                  <h4>height</h4>
-                  <p>{pokemonSelecionar.height}</p>
+                  <h4>Abilities</h4>
+                  <p>{pokemonSelecionar.abilities[0].ability.name}</p>
                 </div>
                 <div>
-                  <h4>height</h4>
-                  <p>{pokemonSelecionar.height}</p>
-                </div>
-                <div>
-                  <h4>height</h4>
-                  <p>{pokemonSelecionar.height}</p>
+                  <h4>Gender</h4>
+                  <p>{characteristic.name}</p>
                 </div>
             </StyledCharacteristic>
           </div>
@@ -121,16 +113,7 @@ const PokeDetalhes = () => {
                     })} 
                   </div>
               </StyledType> 
-            </div> 
-          {/* <div>
-              <h2>Principais ataques</h2>
-              {pokemonSelecionar &&
-                pokemonSelecionar.moves.map((move, index) => {
-                  return (
-                    index < 5 && <p key={move.move.name}>{move.move.name}</p>
-                  );
-                })}
-          </div> */}
+            </div>
         </StyledDivGrid>
       )}
     </StyledDivHome>

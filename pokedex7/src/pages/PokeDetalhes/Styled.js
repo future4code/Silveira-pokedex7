@@ -7,6 +7,7 @@ export const StyledDivGrid = styled.div `
     justify-content: center;
     width: 80%;
     height: 100vh;
+    background-color: white;
 
     .div-main {
         display: flex;
@@ -30,8 +31,8 @@ export const StyledImg = styled.div `
     justify-content: center;
     background-color: #99999950;
     border-radius: 10px;
-    width: 400px;
-    height: 400px;
+    min-width: 400px;
+    min-height: 400px;
 
     img {
         width: 80%;
@@ -45,7 +46,7 @@ export const StyledStats = styled.div `
     background-color: #30a7d7;
     border-radius: 10px;
     width: 400px;
-    height: 300px;
+    height: 200px;
 
     span {
         color: white;
