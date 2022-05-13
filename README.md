@@ -1,16 +1,15 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Davi Souza
+- Italo Souza
+- Jerusa Silva
 
-Link do Surge: www.link.com.br
+Link do Surge: https://relieved-way.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- As implementações com a API estão funcionando corretamente.
+- As 3 páginas requeridas estão funcionando corretamente.
 
 O que não funciona: 
-- Item 3
-- Item 4
+- No momento não há problemas/erros
